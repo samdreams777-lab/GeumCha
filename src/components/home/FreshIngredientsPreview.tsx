@@ -3,41 +3,43 @@ import { Image } from '../ui/Image';
 import { ButtonLink } from '../ui/Button';
 import { useLanguage } from '../../context/LanguageContext';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const INGREDIENT_GROUPS = [
   {
     id: 'meat',
     labelKey: 'meat',
-    image: '/images/ingredients/ingredient-fresh-meat',
+    image: `${baseUrl}images/ingredients/ingredient-fresh-meat.webp`,
     alt: 'Fresh beef, pork, chicken for Korean BBQ and hot pot',
   },
   {
     id: 'seafood',
     labelKey: 'seafood',
-    image: '/images/ingredients/ingredient-fresh-seafood',
+    image: `${baseUrl}images/ingredients/ingredient-fresh-seafood.webp`,
     alt: 'Fresh shrimp, squid, fish for Korean cooking',
   },
   {
     id: 'vegetables',
     labelKey: 'vegetables',
-    image: '/images/ingredients/ingredient-vegetables',
+    image: `${baseUrl}images/ingredients/ingredient-vegetables.webp`,
     alt: 'Fresh napa cabbage, crown daisy, carrots, onions, bean sprouts',
   },
   {
     id: 'mushroomsTofu',
     labelKey: 'mushroomsTofu',
-    image: '/images/ingredients/ingredient-mushrooms-tofu',
+    image: `${baseUrl}images/ingredients/ingredient-mushrooms-tofu.webp`,
     alt: 'Fresh enoki, king oyster mushrooms, soft tofu, fried tofu',
   },
   {
     id: 'koreanPantry',
     labelKey: 'koreanPantry',
-    image: '/images/ingredients/ingredient-korean-pantry',
+    image: `${baseUrl}images/ingredients/ingredient-korean-pantry.webp`,
     alt: 'Kimchi, gochujang, doenjang, sesame oil, rice cakes, noodles',
   },
   {
     id: 'hotPotSet',
     labelKey: 'hotPotSet',
-    image: '/images/ingredients/ingredient-hot-pot-set',
+    image: `${baseUrl}images/ingredients/ingredient-hot-pot-set.webp`,
     alt: 'Complete hot pot ingredient platter ready to cook',
   },
 ];

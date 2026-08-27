@@ -105,7 +105,7 @@ const exact: Record<string, string> = {
 
 };
 
-const menuImageBase = '/images/menu/';
+const menuImageBase = `${import.meta.env.BASE_URL}images/menu/`;
 
 export function getImageForItem(itemId: string): string {
   const file = exact[itemId];

@@ -2,11 +2,13 @@ import { Image } from '../components/ui/Image';
 import { useLanguage } from '../context/LanguageContext';
 import { SEOHead } from '../components/ui/SEOHead';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const INGREDIENT_GROUPS = [
   {
     id: 'meat',
     labelKey: 'freshIngredients.categories.meat',
-    image: '/images/ingredients/ingredient-fresh-meat',
+    image: `${baseUrl}images/ingredients/ingredient-fresh-meat.webp`,
     alt: 'Fresh beef, pork, chicken for Korean BBQ and hot pot',
     items: ['Thịt bò Mỹ (US Beef)', 'Thịt bò Úc', 'Thịt heo ba chỉ', 'Đùi gà tươi', 'Sườn sụn heo'],
     items_en: ['US Beef', 'Australian Beef', 'Pork Belly', 'Fresh Chicken Thigh', 'Pork Ribs'],
@@ -14,7 +16,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'seafood',
     labelKey: 'freshIngredients.categories.seafood',
-    image: '/images/ingredients/ingredient-fresh-seafood',
+    image: `${baseUrl}images/ingredients/ingredient-fresh-seafood.webp`,
     alt: 'Fresh shrimp, squid, fish for Korean cooking',
     items: ['Tôm sú tươi', 'Mực ống', 'Cá basa', 'Bạch tuộc', 'Sò điệp', 'Cá hồi'],
     items_en: ['Fresh Tiger Prawns', 'Squid', 'Basa Fish', 'Octopus', 'Scallops', 'Salmon'],
@@ -22,7 +24,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'vegetables',
     labelKey: 'freshIngredients.categories.vegetables',
-    image: '/images/ingredients/ingredient-vegetables',
+    image: `${baseUrl}images/ingredients/ingredient-vegetables.webp`,
     alt: 'Fresh napa cabbage, crown daisy, carrots, onions, bean sprouts',
     items: ['Cải thảo (Napa cabbage)', 'Cải ngọt (Crown daisy)', 'Cà rốt', 'Hành tây', 'Giá đỗ', 'Hành lá', 'Rau muống'],
     items_en: ['Napa Cabbage', 'Crown Daisy', 'Carrots', 'Onion', 'Bean Sprouts', 'Green Onion', 'Water Spinach'],
@@ -30,7 +32,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'mushroomsTofu',
     labelKey: 'freshIngredients.categories.mushroomsTofu',
-    image: '/images/ingredients/ingredient-mushrooms-tofu',
+    image: `${baseUrl}images/ingredients/ingredient-mushrooms-tofu.webp`,
     alt: 'Fresh enoki, king oyster mushrooms, soft tofu, fried tofu',
     items: ['Nấm kim châm (Enoki)', 'Nấm hương', 'Nấm bào ngư', 'Đậu hũ non', 'Đậu hũ chiên', 'Đậu hũ nước'],
     items_en: ['Enoki Mushroom', 'Shiitake', 'Oyster Mushroom', 'Soft Tofu', 'Fried Tofu', 'Silken Tofu'],
@@ -38,7 +40,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'koreanPantry',
     labelKey: 'freshIngredients.categories.koreanPantry',
-    image: '/images/ingredients/ingredient-korean-pantry',
+    image: `${baseUrl}images/ingredients/ingredient-korean-pantry.webp`,
     alt: 'Kimchi, gochujang, doenjang, sesame oil, rice cakes, noodles',
     items: ['Kimchi cải thảo', 'Gochujang (Tương ớt)', 'Doenjang (Tương đậu nành)', 'Dầu mè', 'Bánh gạo (Tteok)', 'Mì ramen Hàn Quốc', 'Mì lạnh (Naengmyeon)'],
     items_en: ['Napa Kimchi', 'Gochujang (Chili Paste)', 'Doenjang (Soybean Paste)', 'Sesame Oil', 'Rice Cakes (Tteok)', 'Korean Ramen', 'Cold Noodles (Naengmyeon)'],
@@ -46,7 +48,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'hotPotSet',
     labelKey: 'freshIngredients.categories.hotPotSet',
-    image: '/images/ingredients/ingredient-hot-pot-set',
+    image: `${baseUrl}images/ingredients/ingredient-hot-pot-set.webp`,
     alt: 'Complete hot pot ingredient platter ready to cook',
     items: ['Combo Lẩu Hải Sản', 'Combo Lẩu Bò', 'Combo Lẩu Thập Cẩm', 'Rau lẩu thêm', 'Mì lẩu thêm'],
     items_en: ['Seafood Hot Pot Set', 'Beef Hot Pot Set', 'Mixed Hot Pot Set', 'Extra Hot Pot Veggies', 'Extra Hot Pot Noodles'],
@@ -54,7 +56,7 @@ const INGREDIENT_GROUPS = [
   {
     id: 'addOns',
     labelKey: 'freshIngredients.categories.addOns',
-    image: '/images/ingredients/ingredient-addons',
+    image: `${baseUrl}images/ingredients/ingredient-addons.webp`,
     alt: 'Paid add-on portions: egg, cheese, extra meat, seafood',
     items: ['Trứng gà', 'Kimchi thêm', 'Phô mai', 'Thịt bò thêm', 'Tôm thêm', 'Mực thêm', 'Bạch tuộc thêm', 'Mì thêm', 'Nấm kim châm thêm'],
     items_en: ['Egg', 'Extra Kimchi', 'Cheese', 'Extra Beef', 'Extra Shrimp', 'Extra Squid', 'Extra Octopus', 'Extra Noodles', 'Extra Enoki'],
