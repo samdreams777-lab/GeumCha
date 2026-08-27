@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --seoul-black: #111111;
+    --seoul-charcoal: #1B1B1B;
+    --seoul-surface: #242424;
+    --seoul-text: #F5F2EA;
+    --seoul-text-muted: #B7B3AA;
+    --seoul-red: #8E2525;
+    --seoul-gold: #C69A5B;
+  }
+
+  * {
+    @apply border-seoul-surface;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-seoul-black text-seoul-text font-sans-vi antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-seoul-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-seoul-surface rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-seoul-text-muted/30;
+  }
+
+  /* Focus visible */
+  :focus-visible {
+    @apply outline-none ring-2 ring-seoul-gold ring-offset-2 ring-offset-seoul-black;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-seoul-red/40 text-seoul-text;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-200
+           rounded-lg px-5 py-3 text-base touch-target
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-seoul-red text-seoul-text hover:bg-seoul-red/90 active:bg-seoul-red
+           focus:ring-2 focus:ring-seoul-red focus:ring-offset-2 focus:ring-offset-seoul-black;
+  }
+
+  .btn-secondary {
+    @apply btn bg-seoul-surface text-seoul-text border border-seoul-text-muted/30
+           hover:bg-seoul-text-muted/10 active:bg-seoul-text-muted/20
+           focus:ring-2 focus:ring-seoul-text-muted focus:ring-offset-2 focus:ring-offset-seoul-black;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-seoul-text hover:bg-seoul-text-muted/10
+           active:bg-seoul-text-muted/20;
+  }
+
+  .btn-cta {
+    @apply btn-primary bg-seoul-gold text-seoul-black hover:bg-seoul-gold/90
+           font-semibold px-6 py-3.5 text-lg;
+  }
+
+  .btn-outline-gold {
+    @apply btn border-2 border-seoul-gold text-seoul-gold hover:bg-seoul-gold/10
+           active:bg-seoul-gold/20;
+  }
+
+  /* Touch Target */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Card */
+  .card {
+    @apply bg-seoul-charcoal rounded-xl overflow-hidden
+           border border-seoul-surface transition-all duration-300
+           hover:border-seoul-text-muted/20 hover:shadow-lg hover:shadow-seoul-red/10;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Transparent panel variant — used for contact / location / info cards
+     per the site-wide transparent-panel rule. Deliberately NOT applied to
+     menu product cards (those keep .card for visual weight). */
+  .card-transparent {
+    @apply bg-transparent rounded-xl overflow-hidden
+           border border-seoul-text-muted/10 transition-colors duration-300
+           hover:border-seoul-text-muted/25 hover:bg-white/[0.03];
+  }
+
+  /* Input */
+  .input {
+    @apply w-full bg-seoul-surface border border-seoul-text-muted/20 text-seoul-text
+           rounded-lg px-4 py-3 placeholder-seoul-text-muted/50
+           focus:border-seoul-gold focus:ring-2 focus:ring-seoul-gold/20
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-seoul-text-muted mb-1.5;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-gold {
+    @apply badge bg-seoul-gold/20 text-seoul-gold border border-seoul-gold/30;
+  }
+
+  .badge-red {
+    @apply badge bg-seoul-red/25 text-[#ffb4b4] border border-seoul-red/40;
+  }
+
+  /* Section */
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-header {
+    @apply text-center max-w-3xl mx-auto mb-12;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4;
+  }
+
+  .section-subtitle {    @apply text-lg md:text-xl text-seoul-text-muted leading-relaxed;
+  }
+
+  /* Unified hero button system (spec 4.1): same shape/height/typography,
+     three hierarchy tiers — primary gold, secondary outlined, tertiary ghost */
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .btn-hero-ghost {
+    @apply inline-flex items-center justify-center gap-2 w-full px-5 h-12 rounded-xl
+           text-sm font-semibold tracking-wide transition-all duration-200
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-seoul-gold/70
+           active:scale-[0.98] select-none;
+  }
+  /* Dark button (Google-Maps-style dark UI): dark bg, light text/icon;
+     hover turns text + icon gold */
+  .btn-hero-dark {
+    @apply inline-flex items-center justify-center gap-2 w-full px-5 h-12 rounded-xl
+           text-sm font-semibold tracking-wide transition-all duration-200 select-none
+           bg-transparent text-white ring-1 ring-inset ring-white/25
+           hover:text-seoul-gold hover:ring-seoul-gold/60
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-seoul-gold/70 active:scale-[0.98];
+  }
+  .btn-hero-dark svg { @apply transition-colors duration-200; }
+  .btn-hero-dark:hover svg { @apply text-seoul-gold; }
+  .btn-hero-primary {
+    @apply bg-seoul-gold text-seoul-black shadow-lg shadow-black/40
+           hover:bg-[#e6c35c] hover:shadow-black/50;
+  }
+  .btn-hero-secondary {
+    @apply border border-white/30 bg-black/35 backdrop-blur-sm text-white
+           hover:border-seoul-gold hover:text-seoul-gold hover:bg-black/50;
+  }
+  .btn-hero-ghost {
+    @apply text-white/85 underline-offset-4 hover:text-seoul-gold hover:underline;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Image */
+  .img-responsive {
+    @apply w-full h-auto block;
+  }
+
+  .img-cover {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Text Gradient */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-seoul-gold to-yellow-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-seoul-red to-red-400 bg-clip-text text-transparent;
+  }
+
+  /* Divider */
+  .divider {
+    @apply w-20 h-0.5 bg-gradient-to-r from-seoul-gold to-seoul-red mx-auto;
+  }
+
+  .divider-left {
+    @apply w-20 h-0.5 bg-gradient-to-r from-seoul-gold to-seoul-red;
+  }
+}
+
+@layer utilities {
+  /* Text Clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Animation */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Stagger */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-slide-down,
+    .animate-scale-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-seoul-surface/50 backdrop-blur-md border border-seoul-text-muted/10;
+  }
+
+  .glass-strong {
+    @apply bg-seoul-surface/80 backdrop-blur-lg border border-seoul-text-muted/20;
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "freshIngredients": "Fresh Ingredients",
+    "contact": "Contact",
+    "location": "Location"
+  },
+  "hero": {
+    "bookTable": "Book a Table",
+    "headline": "Discover Authentic Korean Flavors",
+    "subheadline": "Fresh Korean cuisine, premium ingredients, and a warm dining experience.",
+    "ctaPrimary": "View Menu",
+    "ctaSecondary": "Get Directions",
+    "ctaTertiary": "Call Now",
+    "discoverSignature": "Discover our signature dish"
+  },
+  "menu": {
+    "title": "Menu",
+    "all": "All",
+    "searchPlaceholder": "Search dishes...",
+    "noResults": "No matching dishes found",
+    "addOns": "Add-ons",
+    "options": "Options",
+    "modifiers": "Options",
+    "selectOptions": "Select Options",
+    "required": "Required",
+    "optional": "Optional",
+    "price": "Price",
+    "addToOrder": "Add to Order",
+    "selectRequired": "Please select the required options",
+    "total": "Total",
+    "ingredients": "Ingredients",
+    "sugarLevel": "Sugar Level",
+    "iceLevel": "Ice Level",
+    "size": "Size",
+    "quantity": "Quantity"
+  },
+  "freshIngredients": {
+    "title": "Fresh Ingredients",
+    "subtitle": "Premium quality, prepared for hot pot, BBQ, frying and mixed dishes",
+    "categories": {
+      "meat": "Fresh Meat",
+      "seafood": "Fresh Seafood",
+      "vegetables": "Vegetables",
+      "mushroomsTofu": "Mushrooms & Tofu",
+      "koreanPantry": "Korean Pantry",
+      "hotPotSet": "Complete Hot Pot Set",
+      "addOns": "Add-ons (Toppings)"
+    }
+  },
+  "about": {
+    "title": "Korean Taste in Every Dish",
+    "story": "Our Story",
+    "philosophy": "Culinary Philosophy",
+    "atmosphere": "Warm Atmosphere",
+    "storyText": [
+      "Seoul Korean Cuisine was born from a passion to bring authentic Korean flavors closer to Vietnamese diners. We wanted to create a dining space where everyone can experience the true taste of Korea right here in Vietnam.",
+      "Our journey began with the search for traditional recipes, the highest-quality ingredients, and elegant, refined presentation — all to deliver the most wonderful experience for our customers."
+    ],
+    "philosophyItems": [
+      "Fresh ingredients daily — no frozen food or preservatives",
+      "Traditional Korean recipes that preserve authentic local flavors",
+      "Imported meat, fresh seafood, and safe organic vegetables",
+      "Customize dishes to your taste: spice level, toppings, size, and sweetness"
+    ],
+    "atmosphereText": [
+      "The space at Seoul Korean Cuisine is designed in the \"Modern Seoul after dark\" style — modern and cozy, with deep charcoal black, warm gold, and rich Korean red tones. The warm golden lighting creates a relaxing feel, perfect for family dinners, romantic dates, or cheerful gatherings with friends.",
+      "Every detail — from the tables and chairs to the plates and food presentation — is carefully crafted to deliver a complete dining experience: not only delicious, but also beautiful and mentally relaxing."
+    ]
+  },
+  "location": {
+    "title": "Visit Seoul Korean Cuisine",
+    "address": "Address",
+    "hours": "Opening Hours",
+    "phone": "Phone",
+    "zalo": "Zalo",
+    "getDirections": "Get Directions",
+    "openInMaps": "Open in Google Maps",
+    "mapTitle": "Google Maps",
+    "mapPlaceholder": "The map will appear here once the Google Maps Embed API is configured with a real Place ID."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "callUs": "Call for Reservation",
+    "zaloChat": "Zalo Chat",
+    "messenger": "Messenger",
+    "email": "Email",
+    "followUs": "Follow Us"
+  },
+  "footer": {
+    "rights": "All rights reserved by Seoul Korean Cuisine.",
+    "privacy": "Privacy Policy"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "currency": "₫"
+  },
+  "cart": {
+    "title": "Cart",
+    "clear": "Clear",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Checkout",
+    "addExtras": "Add extras",
+    "added": "Added ✓",
+    "remove": "Remove item",
+    "empty": "Your cart is empty"
+  }
+}

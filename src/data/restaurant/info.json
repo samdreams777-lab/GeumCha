@@ -1,0 +1,43 @@
+{
+  "name": "Seoul Korean Cuisine",
+  "address": {
+   "street": "25 Lê Hồng Phong",
+   "ward": "Nam Đông Hà",
+   "district": "",
+   "city": "Quảng Trị",
+   "country": "Vietnam",
+   "postalCode": ""
+  },
+  "phone": "TODO: Phone number from owner",
+  "zalo": "TODO: Zalo link/QR from owner",
+  "messenger": "TODO: Messenger link from owner",
+  "email": "TODO: Email from owner",
+  "website": "https://seoulkoreancuisine.vn",
+  "coordinates": {
+   "latitude": 16.813107739066552,
+   "longitude": 107.09990604331085
+  },
+  "googleMapsPlaceId": "TODO: Google Maps Place ID",
+  "googleMapsCid": "TODO: Google Maps CID",
+  "googleMapsLink": "https://maps.app.goo.gl/3KxoAdJnXjXgStZ47?g_st=ac",
+  "openingHours": {
+    "monday": { "open": "10:00", "close": "22:00" },
+    "tuesday": { "open": "10:00", "close": "22:00" },
+    "wednesday": { "open": "10:00", "close": "22:00" },
+    "thursday": { "open": "10:00", "close": "22:00" },
+    "friday": { "open": "10:00", "close": "22:00" },
+    "saturday": { "open": "10:00", "close": "22:00" },
+    "sunday": { "open": "10:00", "close": "22:00" }
+  },
+  "social": {
+    "facebook": "TODO: Facebook page URL",
+    "instagram": "TODO: Instagram URL",
+    "tiktok": "TODO: TikTok URL",
+    "youtube": "TODO: YouTube URL"
+  },
+  "seo": {
+    "defaultTitle": "Seoul Korean Cuisine — Nhà hàng Hàn Quốc chính hiệu tại Việt Nam",
+    "defaultDescription": "Khám phá Seoul Korean Cuisine — Nhà hàng Hàn Quốc với Lẩu, Mì Kim Chi, Tokbokki, Gà rán, Trà sữa. Nguyên liệu tươi, không gian ấm cúng.",
+    "ogImage": "/images/og/og-default.webp"
+  }
+}
