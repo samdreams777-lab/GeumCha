@@ -18,7 +18,7 @@ export default function App() {
       <MenuProvider>
         <ItemOptionsProvider>
         <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/SEULQR">
           <Routes>
             <Route path="/" element={<Layout pageType="home" />}>
               <Route index element={<HomePage />} />
