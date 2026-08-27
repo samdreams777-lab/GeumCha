@@ -18,7 +18,7 @@ export default function App() {
       <MenuProvider>
         <ItemOptionsProvider>
         <CartProvider>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+<BrowserRouter basename={import.meta.env.BASE_URL}>
           <Routes>
             <Route path="/" element={<Layout pageType="home" />}>
               <Route index element={<HomePage />} />
@@ -49,3 +49,4 @@ export default function App() {
     </LanguageProvider>
   );
 }
+
