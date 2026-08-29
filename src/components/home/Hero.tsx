@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import logo from '../../assets/mainlogo.webp';
-import heroVideo from '../../assets/13393476_720_1280_30fps.mp4';
+import heroVideo from '../../assets/heroios.mov';
 import { useState, useEffect, useCallback } from 'react';
 
 /**
