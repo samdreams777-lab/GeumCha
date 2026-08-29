@@ -88,7 +88,7 @@ export function PrivacyPage() {
               <h2 className="text-xl font-bold text-seoul-text mb-3">9. Liên hệ</h2>
               <p>Mọi thắc mắc về chính sách bảo mật, vui lòng liên hệ:</p>
               <address className="not-italic mt-2 space-y-1">
-                <p><strong>Seoul Korean Cuisine</strong></p>
+                <p><strong>Geum Cha</strong></p>
                 <p>Điện thoại: {restaurantInfo.phone !== 'TODO: Phone number from owner' ? restaurantInfo.phone : 'Đang cập nhật...'}</p>
                 <p>Email: {restaurantInfo.email !== 'TODO: Email from owner' ? restaurantInfo.email : 'Đang cập nhật...'}</p>
               </address>

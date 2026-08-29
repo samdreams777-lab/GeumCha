@@ -9,7 +9,7 @@ const navItems = [
   { path: '/', labelKey: 'nav.home' },
   { path: '/menu', labelKey: 'nav.menu' },
   { path: '/about', labelKey: 'nav.about' },
-  { path: '/fresh-ingredients', labelKey: 'nav.freshIngredients' },
+  { path: '/new-recommended', labelKey: 'nav.freshIngredients' },
   { path: '/contact', labelKey: 'nav.contact' },
   { path: '/location', labelKey: 'nav.location' },
 ] as const;
@@ -32,8 +32,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-seoul-black/95 backdrop-blur-md border-b border-seoul-surface' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        scrolled ? 'bg-seoul-black/70 backdrop-blur-md border-b border-seoul-surface/50' : 'bg-transparent'
       }`}
       role="banner"
     >
@@ -42,15 +42,15 @@ export function Header() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center flex-shrink-0 -my-2 pr-2"
+            className="flex items-center flex-shrink-0 -my-1 pr-2"
             aria-label={t.nav.home}
           >
             <img
               src={logo}
-              alt="Seoul Korean Cuisine"
-              width={1168}
-              height={784}
-              className="object-contain w-[150px] sm:w-[170px] md:w-[200px] lg:w-[220px] h-auto"
+              alt="Geum Cha"
+              width={353}
+              height={590}
+              className="object-contain w-[36px] sm:w-[39px] md:w-[43px] lg:w-[47px] h-auto"
             />
           </Link>
 

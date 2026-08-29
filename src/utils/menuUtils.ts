@@ -1,6 +1,7 @@
 import type { MenuCategory, MenuItem, AddOnItem, SearchResult } from '../types/menu';
 
 /** Localized label for a modifier or option, falling back to the base `name`. */
+
 export function ModLabel(
   obj: { name: string; name_vi?: string; name_en?: string } | undefined,
   locale: 'vi' | 'en'
@@ -9,6 +10,7 @@ export function ModLabel(
   if (locale === 'en') return obj.name_en || obj.name;
   return obj.name_vi || obj.name;
 }
+
 
 export function generateAddOnCatalog(categories: MenuCategory[]): AddOnItem[] {
   const addOnMap = new Map<string, AddOnItem>();

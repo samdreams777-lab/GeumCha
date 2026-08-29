@@ -209,13 +209,24 @@
     @apply bg-gradient-to-r from-seoul-red to-red-400 bg-clip-text text-transparent;
   }
 
-  /* Divider */
-  .divider {
-    @apply w-20 h-0.5 bg-gradient-to-r from-seoul-gold to-seoul-red mx-auto;
+  /* Hero video background */
+  .hero-video {
+    @apply absolute inset-0 w-full h-full object-cover;
   }
 
-  .divider-left {
-    @apply w-20 h-0.5 bg-gradient-to-r from-seoul-gold to-seoul-red;
+  /* Hero overlay gradient */
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* Logo fade-in animation — runs once on mount */
+  @keyframes logoFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .logo-fade-in {
+    animation: logoFadeIn 1s ease-out forwards;
   }
 }
 

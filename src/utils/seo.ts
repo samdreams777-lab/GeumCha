@@ -30,23 +30,25 @@ export function generateHreflang(path: string): Array<{ hreflang: string; href: 
 export function generateOpenGraph(props: SEOProps, locale: Locale) {
   const base = 'https://seoulkoreancuisine.vn';
   const ogImage = props.ogImage || restaurantInfo.seo.ogImage;
-  const fullImageUrl = ogImage.startsWith('http') ? ogImage : `${base}${ogImage}`;
+  const fullImageUrl = ogImage.startsWith('http')
+    ? ogImage
+    : `${base}${import.meta.env.BASE_URL}${ogImage.replace(/^\//, '')}`;
 
   return {
     type: props.ogType || 'website',
-    siteName: 'Seoul Korean Cuisine',
+    siteName: 'Geum Cha',
     locale: locale === 'vi' ? 'vi_VN' : 'en_US',
     localeAlternate: locale === 'vi' ? 'en_US' : 'vi_VN',
-    title: props.title || (locale === 'vi' ? restaurantInfo.seo.defaultTitle : 'Seoul Korean Cuisine — Authentic Korean Restaurant in Vietnam'),
-    description: props.description || (locale === 'vi' ? restaurantInfo.seo.defaultDescription : 'Discover Seoul Korean Cuisine — Authentic Korean food with Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken, Milk Tea. Fresh ingredients, cozy atmosphere.'),
+    title: props.title || (locale === 'vi' ? restaurantInfo.seo.defaultTitle : 'Geum Cha — Premium Korean-Asian Tea House in Vietnam'),
+    description: props.description || (locale === 'vi' ? restaurantInfo.seo.defaultDescription : 'Discover Geum Cha — Premium Korean-Asian tea house with Milk Tea, Fresh Milk, Matcha, Roasted Rice, Yogurt. Quality ingredients, calm atmosphere.'),
     url: props.canonical || base,
     image: {
       url: fullImageUrl,
       width: 1200,
       height: 630,
       alt: locale === 'vi'
-        ? 'Seoul Korean Cuisine — Món Hàn Quốc chính hiệu: Lẩu, Mì Kim Chi, Tokbokki, Gà rán'
-        : 'Seoul Korean Cuisine — Authentic Korean food: Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken',
+        ? 'Geum Cha — Trà & Đồ Uống Hàn Quốc Đẳng Cấp: Trà sữa, Matcha, Sữa tươi, Sữa chua'
+        : 'Geum Cha — Premium Korean-Asian Tea House: Milk Tea, Matcha, Fresh Milk, Yogurt',
     },
   };
 }
@@ -54,20 +56,22 @@ export function generateOpenGraph(props: SEOProps, locale: Locale) {
 export function generateTwitterCard(props: SEOProps, locale: Locale) {
   const base = 'https://seoulkoreancuisine.vn';
   const ogImage = props.ogImage || restaurantInfo.seo.ogImage;
-  const fullImageUrl = ogImage.startsWith('http') ? ogImage : `${base}${ogImage}`;
+  const fullImageUrl = ogImage.startsWith('http')
+    ? ogImage
+    : `${base}${import.meta.env.BASE_URL}${ogImage.replace(/^\//, '')}`;
 
   return {
     card: 'summary_large_image',
-    title: props.title || (locale === 'vi' ? restaurantInfo.seo.defaultTitle : 'Seoul Korean Cuisine — Authentic Korean Restaurant in Vietnam'),
-    description: props.description || (locale === 'vi' ? restaurantInfo.seo.defaultDescription : 'Discover Seoul Korean Cuisine — Authentic Korean food with Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken, Milk Tea.'),
+    title: props.title || (locale === 'vi' ? restaurantInfo.seo.defaultTitle : 'Geum Cha — Premium Korean-Asian Tea House in Vietnam'),
+    description: props.description || (locale === 'vi' ? restaurantInfo.seo.defaultDescription : 'Discover Geum Cha — Premium Korean-Asian tea house with Milk Tea, Matcha, Fresh Milk, Yogurt. Quality ingredients, calm atmosphere.'),
     image: fullImageUrl,
     imageAlt: locale === 'vi'
-      ? 'Seoul Korean Cuisine — Món Hàn Quốc chính hiệu'
-      : 'Seoul Korean Cuisine — Authentic Korean food',
+      ? 'Geum Cha — Trà & Đồ Uống Hàn Quốc Đẳng Cấp'
+      : 'Geum Cha — Premium Korean-Asian Tea House',
   };
 }
 
-export function generateStructuredData(props: SEOProps, locale: Locale, pageType: 'home' | 'menu' | 'location' | 'about' | 'fresh-ingredients' | 'contact' | 'privacy') {
+export function generateStructuredData(props: SEOProps, locale: Locale, pageType: 'home' | 'menu' | 'location' | 'about' | 'new-recommended' | 'contact' | 'privacy') {
   const base = 'https://seoulkoreancuisine.vn';
   const schemas: Record<string, unknown>[] = [];
 
@@ -85,8 +89,8 @@ export function generateStructuredData(props: SEOProps, locale: Locale, pageType
     case 'location':
       schemas.push(generateLocationSchema(locale));
       break;
-    case 'fresh-ingredients':
-      schemas.push(generateFreshIngredientsSchema(locale));
+    case 'new-recommended':
+      schemas.push(generateNewRecommendedSchema(locale));
       break;
     case 'about':
       schemas.push(generateAboutSchema(locale));
@@ -117,7 +121,7 @@ function generateBreadcrumbSchema(pageType: string, locale: Locale) {
   const pageNames: Record<string, { vi: string; en: string }> = {
     menu: { vi: 'Thực đơn', en: 'Menu' },
     about: { vi: 'Giới thiệu', en: 'About' },
-    'fresh-ingredients': { vi: 'Nguyên liệu tươi', en: 'Fresh Ingredients' },
+    'new-recommended': { vi: 'Món mới & Đặc trưng', en: 'Signature & New' },
     contact: { vi: 'Liên hệ', en: 'Contact' },
     location: { vi: 'Địa chỉ', en: 'Location' },
     privacy: { vi: 'Chính sách bảo mật', en: 'Privacy Policy' },
@@ -147,10 +151,10 @@ function generateRestaurantSchema(locale: Locale) {
 
   return {
     '@type': ['Restaurant', 'LocalBusiness', 'FoodEstablishment'],
-    name: 'Seoul Korean Cuisine',
+    name: 'Geum Cha',
     description: locale === 'vi'
-      ? 'Nhà hàng Hàn Quốc chính hiệu tại Việt Nam với Lẩu, Mì Kim Chi, Tokbokki, Gà rán, Trà sữa. Nguyên liệu tươi, không gian ấm cúng.'
-      : 'Authentic Korean restaurant in Vietnam with Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken, Milk Tea. Fresh ingredients, cozy atmosphere.',
+      ? 'Trà & đồ uống Hàn Quốc chính hiệu tại Việt Nam với Trà sữa, Sữa tươi, Matcha, Gạo rang, Sữa chua. Nguyên liệu tươi, không gian yên tĩnh.'
+      : 'Premium Korean-Asian tea house in Vietnam with Milk Tea, Fresh Milk, Matcha, Roasted Rice, Yogurt. Quality ingredients, calm atmosphere.',
     url: 'https://seoulkoreancuisine.vn',
     telephone: info.phone !== 'TODO: Phone number from owner' ? info.phone : undefined,
     address: {
@@ -174,14 +178,14 @@ function generateRestaurantSchema(locale: Locale) {
         closes: '22:00',
       },
     ],
-    servesCuisine: 'Korean',
+    servesCuisine: 'Korean-Asian Tea',
     priceRange: '₫₫',
     currenciesAccepted: 'VND',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    hasMenu: 'https://seoulkoreancuisine.vn/menu',
+    hasMenu: `${import.meta.env.BASE_URL}menu`,
     image: [
-      'https://seoulkoreancuisine.vn/images/menu/kimchi-ramen.webp',
-      'https://seoulkoreancuisine.vn/images/menu/korean-hot-pot.webp',
+      `${import.meta.env.BASE_URL}images/menu/milk_tea_traditional.jpg`,
+      `${import.meta.env.BASE_URL}images/menu/matcha_latte.webp`,
     ],
     sameAs: [
       info.social.facebook !== 'TODO: Facebook page URL' ? info.social.facebook : undefined,
@@ -194,15 +198,14 @@ function generateRestaurantSchema(locale: Locale) {
 }
 
 function generateMenuSchema(locale: Locale) {
-  // This would be populated with actual menu data
   return {
     '@type': 'Menu',
-    name: locale === 'vi' ? 'Thực đơn Seoul Korean Cuisine' : 'Seoul Korean Cuisine Menu',
+    name: locale === 'vi' ? 'Thực đơn Geum Cha' : 'Geum Cha Menu',
     description: locale === 'vi'
-      ? 'Thực đơn đầy đủ: Lẩu, Mì Kim Chi, Tokbokki, Bibimbap, Gà Seoul, Trà sữa, Yogurt.'
-      : 'Complete menu: Hot Pot, Kimchi Ramen, Tteokbokki, Bibimbap, Seoul Chicken, Milk Tea, Yogurt.',
+      ? 'Thực đơn đầy đủ: Trà sữa, Sữa tươi, Matcha, Gạo rang, Lá nếp, Chocolate, Trái cây, Sữa chua.'
+      : 'Complete menu: Milk Tea, Fresh Milk, Matcha, Roasted Rice, Pandan, Chocolate, Fruit, Yogurt.',
     url: 'https://seoulkoreancuisine.vn/menu',
-    hasMenuSection: [], // Would be populated dynamically
+    hasMenuSection: [],
   };
 }
 
@@ -210,10 +213,10 @@ function generateLocationSchema(locale: Locale) {
   const info = restaurantInfo;
   return {
     '@type': 'LocalBusiness',
-    name: 'Seoul Korean Cuisine',
+    name: 'Geum Cha',
     description: locale === 'vi'
-      ? 'Địa chỉ và chỉ đường đến Seoul Korean Cuisine — Nhà hàng Hàn Quốc tại Việt Nam.'
-      : 'Location and directions to Seoul Korean Cuisine — Korean Restaurant in Vietnam.',
+      ? 'Địa chỉ và chỉ đường đến Geum Cha — Trà & Đồ Uống Hàn Quốc tại Việt Nam.'
+      : 'Location and directions to Geum Cha — Premium Korean-Asian Tea House in Vietnam.',
     url: 'https://seoulkoreancuisine.vn/location',
     telephone: info.phone !== 'TODO: Phone number from owner' ? info.phone : undefined,
     address: {
@@ -243,29 +246,29 @@ function generateLocationSchema(locale: Locale) {
   };
 }
 
-function generateFreshIngredientsSchema(locale: Locale) {
+function generateNewRecommendedSchema(locale: Locale) {
   return {
     '@type': 'ItemList',
-    name: locale === 'vi' ? 'Nguyên liệu tươi tại Seoul Korean Cuisine' : 'Fresh Ingredients at Seoul Korean Cuisine',
+    name: locale === 'vi' ? 'Món mới & Đề xuất tại Geum Cha' : 'New & Recommended at Geum Cha',
     description: locale === 'vi'
-      ? 'Thịt, hải sản, rau củ, nấm, đậu hũ, kimchi, mì, bánh gạo tươi cho lẩu, nướng, chiên.'
-      : 'Fresh meat, seafood, vegetables, mushrooms, tofu, kimchi, noodles, rice cakes for hot pot, BBQ, frying.',
-    url: 'https://seoulkoreancuisine.vn/fresh-ingredients',
-    itemListElement: [], // Would be populated dynamically
+      ? 'Những thức uống mới và được đề xuất nhất tại Geum Cha — Trà sữa, Matcha, Sữa tươi, Sữa chua.'
+      : 'New and recommended drinks at Geum Cha — Milk tea, Matcha, Fresh Milk, Yogurt.',
+    url: 'https://seoulkoreancuisine.vn/new-recommended',
+    itemListElement: [],
   };
 }
 
 function generateAboutSchema(locale: Locale) {
   return {
     '@type': 'AboutPage',
-    name: locale === 'vi' ? 'Về Seoul Korean Cuisine' : 'About Seoul Korean Cuisine',
+    name: locale === 'vi' ? 'Về Geum Cha' : 'About Geum Cha',
     description: locale === 'vi'
-      ? 'Câu chuyện và triết lý ẩm thực của Seoul Korean Cuisine — Nhà hàng Hàn Quốc chính hiệu tại Việt Nam.'
-      : 'The story and culinary philosophy of Seoul Korean Cuisine — Authentic Korean Restaurant in Vietnam.',
+      ? 'Câu chuyện và triết lý ẩm thực của Geum Cha — Trà & Đồ Uống Hàn Quốc Đẳng Cấp Tại Việt Nam.'
+      : 'The story and philosophy of Geum Cha — Premium Korean-Asian Tea House in Vietnam.',
     url: 'https://seoulkoreancuisine.vn/about',
     mainEntity: {
       '@type': 'Restaurant',
-      name: 'Seoul Korean Cuisine',
+      name: 'Geum Cha',
     },
   };
 }
@@ -274,14 +277,14 @@ function generateContactSchema(locale: Locale) {
   const info = restaurantInfo;
   return {
     '@type': 'ContactPage',
-    name: locale === 'vi' ? 'Liên hệ Seoul Korean Cuisine' : 'Contact Seoul Korean Cuisine',
+    name: locale === 'vi' ? 'Liên hệ Geum Cha' : 'Contact Geum Cha',
     description: locale === 'vi'
       ? 'Liên hệ đặt bàn, Gọi điện, Zalo, Messenger, Google Maps.'
       : 'Contact for reservation, Call, Zalo, Messenger, Google Maps.',
     url: 'https://seoulkoreancuisine.vn/contact',
     mainEntity: {
       '@type': 'Restaurant',
-      name: 'Seoul Korean Cuisine',
+      name: 'Geum Cha',
       telephone: info.phone !== 'TODO: Phone number from owner' ? info.phone : undefined,
       email: info.email !== 'TODO: Email from owner' ? info.email : undefined,
     },
@@ -289,7 +292,7 @@ function generateContactSchema(locale: Locale) {
 }
 
 export function generatePageSEO(
-  pageType: 'home' | 'menu' | 'location' | 'about' | 'fresh-ingredients' | 'contact' | 'privacy',
+  pageType: 'home' | 'menu' | 'location' | 'about' | 'new-recommended' | 'contact' | 'privacy',
   locale: Locale,
   customProps: SEOProps = {}
 ): {
@@ -302,68 +305,72 @@ export function generatePageSEO(
   structuredData: ReturnType<typeof generateStructuredData>;
   robots: string;
 } {
-  const path = pageType === 'home' ? '/' : `/${pageType}`;
+  const path = pageType === 'home' ? '/' : `/${pageType === 'new-recommended' ? 'new-recommended' : pageType}`;
   const canonical = customProps.canonical || generateCanonical(path);
 
   const pageTitles: Record<string, { vi: string; en: string }> = {
     home: {
-      vi: 'Nhà hàng Hàn Quốc Seoul Korean Cuisine — Món Hàn Đích Thực, Lẩu, Mì, Tokbokki',
-      en: 'Seoul Korean Cuisine Vietnam — Authentic Korean Food, Hot Pot, Ramen, Tteokbokki',
+      vi: 'Trà & Đồ Uống Hàn Quốc Geum Cha — Matcha, Trà Sữa, Sữa Tươi, Sữa Chua',
+      en: 'Geum Cha — Premium Korean-Asian Tea House | Milk Tea, Matcha, Fresh Milk',
     },
     menu: {
-      vi: 'Thực đơn Seoul Korean Cuisine — Lẩu, Mì Kim Chi, Tokbokki, Gà, Trà Sữa',
-      en: 'Menu — Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken, Milk Tea',
+      vi: 'Thực Đơn Geum Cha — Trà Sữa, Matcha, Sữa Tươi, Gạo Rang, Sữa Chua',
+      en: 'Geum Cha Menu — Milk Tea, Matcha, Fresh Milk, Roasted Rice, Yogurt',
     },
     about: {
-      vi: 'Về Seoul Korean Cuisine — Câu Chuyện Ẩm Thực Hàn Quốc Tại Việt Nam',
-      en: 'About Seoul Korean Cuisine — Our Korean Culinary Story in Vietnam',
+      vi: 'Về Geum Cha — Câu Chuyện Trà & Đồ Uống Hàn Quốc Tại Việt Nam',
+      en: 'About Geum Cha — Our Korean-Asian Tea House Story in Vietnam',
     },
     'fresh-ingredients': {
-      vi: 'Nguyên Liệu Tươi Sống Seoul Korean Cuisine — Thịt, Hải Sản, Rau, Kim Chi',
-      en: 'Fresh Ingredients — Meat, Seafood, Vegetables, Kimchi',
+      vi: 'Món Mới & Đặc Trưng Geum Cha — Trà Sữa, Matcha, Sữa Tươi, Sữa Chua',
+      en: 'Signature & New — Milk Tea, Matcha, Fresh Milk, Yogurt',
+    },
+    'new-recommended': {
+      vi: 'Món Mới & Đặc Trưng Geum Cha — Trà Sữa, Matcha, Sữa Tươi, Sữa Chua',
+      en: 'Signature & New — Milk Tea, Matcha, Fresh Milk, Yogurt',
     },
     location: {
-      vi: 'Địa Chỉ & Chỉ Đường Seoul Korean Cuisine — Google Maps, Giờ Mở Cửa',
+      vi: 'Địa Chỉ & Chỉ Đường Geum Cha — Google Maps, Giờ Mở Cửa',
       en: 'Location & Directions — Google Maps, Opening Hours',
     },
     contact: {
-      vi: 'Liên Hệ Seoul Korean Cuisine — Đặt Bàn, Gọi, Zalo, Google Maps',
+      vi: 'Liên Hệ Geum Cha — Đặt Bàn, Gọi, Zalo, Google Maps',
       en: 'Contact — Reservation, Call, Zalo, Google Maps',
     },
     privacy: {
-      vi: 'Chính Sách Bảo Mật — Seoul Korean Cuisine',
-      en: 'Privacy Policy — Seoul Korean Cuisine',
+      vi: 'Chính Sách Bảo Mật — Geum Cha',
+      en: 'Privacy Policy — Geum Cha',
     },
   };
 
   const pageDescriptions: Record<string, { vi: string; en: string }> = {
     home: {
-      vi: 'Khám phá Seoul Korean Cuisine — Nhà hàng Hàn Quốc chính hiệu với Lẩu, Mì Kim Chi, Tokbokki, Gà rán, Trà sữa. Nguyên liệu tươi, không gian ấm cúng. Xem menu & chỉ đường ngay!',
-      en: 'Discover Seoul Korean Cuisine — Authentic Korean restaurant with Hot Pot, Kimchi Ramen, Tteokbokki, Fried Chicken, Milk Tea. Fresh ingredients, cozy atmosphere. View menu & get directions!',
+      vi: 'Khám phá Geum Cha — Trà & Đồ Uống Hàn Quốc với Trà sữa, Matcha, Sữa tươi, Sữa chua. Nguyên liệu tươi, không gian yên tĩnh. Xem menu & chỉ đường ngay!',
+      en: 'Discover Geum Cha — Premium Korean-Asian Tea House with Milk Tea, Matcha, Fresh Milk, Yogurt. Quality ingredients, calm atmosphere. View menu & get directions!',
     },
     menu: {
-      vi: 'Xem thực đơn đầy đủ: Lẩu hải sản/bò, Mì Kim Chi, Tokbokki thập cẩm, Bibimbap, Gà Seoul, Trà sữa Matcha, Yogurt. Giá công khai, tùy chọn topping.',
-      en: 'Full menu: Seafood/Beef Hot Pot, Kimchi Ramen, Assorted Tteokbokki, Bibimbap, Seoul Fried Chicken, Matcha Milk Tea, Yogurt. Transparent pricing, customizable toppings.',
+      vi: 'Xem thực đơn đầy đủ: Trà sữa truyền thống, Matcha, Gạo rang, Lá nếp, Chocolate, Sữa chua. Giá công khai, tùy chọn topping.',
+      en: 'Full menu: Milk Tea, Matcha, Roasted Rice, Pandan, Chocolate, Yogurt. Transparent pricing, customizable toppings.',
     },
     about: {
-      vi: 'Seoul Korean Cuisine mang hương vị Hàn Quốc đích thực đến Việt Nam. Cam kết nguyên liệu tươi, nấu ăn truyền thống, phục vụ tận tâm.',
-      en: 'Seoul Korean Cuisine brings authentic Korean flavors to Vietnam. Committed to fresh ingredients, traditional cooking, warm hospitality.',
+      vi: 'Geum Cha mang trà & đồ uống Hàn Quốc đích thực đến Việt Nam. Cam kết nguyên liệu tươi, chế biến tinh tế, phục vụ tận tâm.',
+      en: 'Geum Cha brings premium Korean-Asian beverages to Vietnam. Committed to fresh ingredients, refined preparation, warm hospitality.',
     },
     'fresh-ingredients': {
-      vi: 'Khám phá nguyên liệu tươi tại Seoul Korean Cuisine: Thịt bò/tôm/mực, rau củ, kimchi, nấm, mì, bánh gạo. Chất lượng cao, chuẩn bị cho lẩu, nướng, chiên.',
-      en: 'Explore fresh ingredients at Seoul Korean Cuisine: Beef/shrimp/squid, vegetables, kimchi, mushrooms, noodles, rice cakes. Premium quality for hot pot, BBQ, frying.',
+      vi: 'Khám phá Món mới & Đặc trưng tại Geum Cha: Trà sữa, Matcha, Sữa tươi, Sữa chua. Đồ uống cao cấp, chuẩn bị hoàn hảo.',
+      en: 'Explore Signature & New at Geum Cha: Milk tea, Matcha, Fresh Milk, Yogurt. Premium quality for perfect beverages.',
     },
     location: {
-      vi: 'Tìm đường đến Seoul Korean Cuisine: Địa chỉ chi tiết, Google Maps, giờ mở cửa, số điện thoại, Zalo. Dễ dàng đến quán ăn Hàn Quốc ngon.',
-      en: 'Find Seoul Korean Cuisine: Full address, Google Maps, opening hours, phone, Zalo. Easy directions to your Korean restaurant.',
+      vi: 'Tìm đường đến Geum Cha: Địa chỉ chi tiết, Google Maps, giờ mở cửa, số điện thoại, Zalo. Dễ dàng đến quán trà Hàn Quốc ngon.',
+      en: 'Find Geum Cha: Full address, Google Maps, opening hours, phone, Zalo. Easy directions to your Korean tea house.',
     },
     contact: {
-      vi: 'Liên hệ Seoul Korean Cuisine: Gọi đặt bàn, nhắn Zalo, Messenger, xem Google Maps. Phục vụ nhanh, nhiệt tình.',
-      en: 'Contact Seoul Korean Cuisine: Call for reservation, Zalo, Messenger, Google Maps. Fast, friendly service.',
+      vi: 'Liên hệ Geum Cha: Gọi đặt bàn, nhắn Zalo, Messenger, xem Google Maps. Phục vụ nhanh, nhiệt tình.',
+      en: 'Contact Geum Cha: Call for reservation, Zalo, Messenger, Google Maps. Fast, friendly service.',
     },
     privacy: {
-      vi: 'Chính sách bảo mật dữ liệu khách hàng tại Seoul Korean Cuisine. Cam kết an toàn thông tin cá nhân.',
-      en: 'Customer data privacy policy at Seoul Korean Cuisine. Committed to protecting personal information.',
+      vi: 'Chính sách bảo mật dữ liệu khách hàng tại Geum Cha. Cam kết an toàn thông tin cá nhân.',
+      en: 'Customer data privacy policy at Geum Cha. Committed to protecting personal information.',
     },
   };
 

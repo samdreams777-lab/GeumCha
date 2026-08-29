@@ -1,10 +1,11 @@
 import { Hero } from '../components/home/Hero';
+import { NewRecommendedPreview } from '../components/home/NewRecommendedPreview';
 import { SEOHead } from '../components/ui/SEOHead';
 
 /**
- * Simplified home page per spec 4.1:
- * one compact header screen holds logo, all key actions,
- * language switcher, tagline and quick links.
+ * Compact, premium home page:
+ *  - Hero (video background + delayed logo + primary actions)
+ *  - Signature & New showcase (a few recommended drinks, not the full menu)
  * No competing large sections below.
  */
 export function HomePage() {
@@ -12,6 +13,7 @@ export function HomePage() {
     <>
       <SEOHead pageType="home" />
       <Hero />
+      <NewRecommendedPreview />
     </>
   );
 }

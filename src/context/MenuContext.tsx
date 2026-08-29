@@ -24,18 +24,64 @@ export function MenuProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Simulate async load
-    const timer = setTimeout(() => {
-      try {
-        setMenu(menuData as RestaurantMenu);
-        setError(null);
-      } catch (e) {
-        setError('Failed to load menu data');
-      } finally {
-        setLoading(false);
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+        const timer = setTimeout(() => {
+          try {
+            // Convert geumcha-menu.json format to RestaurantMenu format
+            const convertedMenu = convertMenuData(menuData);
+            setMenu(convertedMenu as RestaurantMenu);
+            setError(null);
+          } catch (e) {
+            setError('Failed to load menu data');
+          } finally {
+            setLoading(false);
+          }
+        }, 100);
+        return () => clearTimeout(timer);
+      }, []);
+
+      // Helper to convert geumcha-menu.json to RestaurantMenu format
+      const convertMenuData = (data: any): RestaurantMenu => {
+        const categories = data.categories.map((cat: any) => ({
+          id: cat.id,
+          name_vi: cat.name_vi,
+          name_en: cat.name_en,
+          name_ko: cat.name_ko,
+          items: (cat.items || []).map((item: any) => ({
+            id: item.id,
+            name_vi: item.name_vi,
+            name_en: item.name_en,
+            name_ko: item.name_ko,
+            description_vi: item.description_vi || '',
+            description_en: item.description_en || '',
+            price: String(item.price ?? ''),
+            image_reference: item.image_reference || '',
+            modifiers: (item.modifiers || []).map((m: any) => ({
+              name: m.name,
+              type: m.type === 'multi' ? 'multi' : 'single',
+              required: Boolean(m.required),
+              options: (m.options || []).map((o: any) => ({
+                name: o.name,
+                price: Number(o.price || 0),
+                name_vi: o.name_vi || o.name,
+                name_en: o.name_en || o.name,
+              })),
+              name_vi: m.name_vi || m.name,
+              name_en: m.name_en || m.name,
+            })),
+            needs_review: (item.description_vi || '').includes('NEEDS_VERIFICATION'),
+          })),
+          display_order: cat.sort_order,
+        }));
+
+        return {
+          restaurant: {
+            name: data.restaurant.name,
+            country: 'Vietnam',
+            currency: 'VND',
+          },
+          categories,
+        };
+      };
 
   const categories = useMemo(() => menu?.categories || [], [menu]);
 

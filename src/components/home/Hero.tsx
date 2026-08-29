@@ -1,34 +1,72 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import logo from '../../assets/logo.webp';
+import logo from '../../assets/mainlogo.webp';
+import heroVideo from '../../assets/13393476_720_1280_30fps.mp4';
+import { useState, useEffect, useCallback } from 'react';
 
 /**
- * Clean hero per spec: dominant logo + exactly two CTAs.
- * Language switcher lives in the site Header (single instance).
+ * Hero with video background + delayed Main Logo Web fade-in.
+ * Logo animation runs only once on mount (not on video loop).
  */
 export function Hero() {
   const { t } = useLanguage();
+  const [logoVisible, setLogoVisible] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  const handleVideoCanPlay = useCallback(() => {
+    setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLogoVisible(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <section className="relative" aria-labelledby="hero-title">
-      <div className="min-h-[100svh] flex flex-col items-center justify-center px-4 py-4 relative">
-        {/* Dominant golden SEOUL logo + CTAs pulled close to it */}
-        <div className="w-full flex items-center justify-center min-h-0">
+    <section className="relative min-h-screen" aria-labelledby="hero-title">
+      {/* Video background */}
+      <div className="absolute inset-0 z-0 overflow-hidden hero-video">
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          disablePictureInPicture
+          className={`absolute inset-0 w-full h-full object-cover hero-video ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          style={{ transition: 'opacity 0.5s ease' }}
+          onCanPlayThrough={handleVideoCanPlay}
+          onError={() => setVideoReady(true)}
+        />
+      </div>
+
+      {/* Readability overlay */}
+      <div className="absolute inset-0 z-[1] hero-overlay" aria-hidden="true" />
+
+      {/* Content */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-4">
+        {/* Main Logo Web — delayed fade-in (runs once on mount) */}
+        <div
+          className={`w-full flex items-center justify-center min-h-0 transition-opacity duration-1000 ease-out ${logoVisible ? 'logo-fade-in' : ''}`}
+          style={{ opacity: logoVisible ? 1 : 0 }}
+        >
           <img
             src={logo}
-            alt="Seoul Korean Cuisine — Vua Mì Cay"
+            alt="Geum Cha — Vua Mì Cay"
             width={1168}
             height={784}
             fetchPriority="high"
             decoding="async"
             className="object-contain w-auto drop-shadow-[0_6px_28px_rgba(0,0,0,0.65)]"
-            style={{ maxHeight: 'calc(100svh - 220px)', maxWidth: '94vw' }}
+            style={{ maxHeight: 'calc(100vh - 220px)', maxWidth: '94vw' }}
           />
         </div>
 
         {/* Two primary actions only — directly beneath the logo */}
         <div className="w-full max-w-sm mx-auto text-center mt-5">
-          <h1 id="hero-title" className="sr-only">Seoul Korean Cuisine</h1>
+          <h1 id="hero-title" className="sr-only">Geum Cha</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <Link to="/menu" className="btn-hero-dark">
               <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

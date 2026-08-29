@@ -3,24 +3,24 @@
     "home": "Home",
     "menu": "Menu",
     "about": "About",
-    "freshIngredients": "Fresh Ingredients",
+    "freshIngredients": "Signature & New",
     "contact": "Contact",
     "location": "Location"
   },
   "hero": {
     "bookTable": "Book a Table",
-    "headline": "Discover Authentic Korean Flavors",
-    "subheadline": "Fresh Korean cuisine, premium ingredients, and a warm dining experience.",
+    "headline": "Korean-Asian Tea, Crafted with Character",
+    "subheadline": "Discover Geum Cha — a contemporary tea house where Korean-inspired flavors meet modern Asian beverage culture.",
     "ctaPrimary": "View Menu",
     "ctaSecondary": "Get Directions",
     "ctaTertiary": "Call Now",
-    "discoverSignature": "Discover our signature dish"
+    "discoverSignature": "Discover our signature drinks"
   },
   "menu": {
     "title": "Menu",
     "all": "All",
-    "searchPlaceholder": "Search dishes...",
-    "noResults": "No matching dishes found",
+    "searchPlaceholder": "Search drinks...",
+    "noResults": "No matching drinks found",
     "addOns": "Add-ons",
     "options": "Options",
     "modifiers": "Options",
@@ -37,41 +37,76 @@
     "size": "Size",
     "quantity": "Quantity"
   },
-  "freshIngredients": {
-    "title": "Fresh Ingredients",
-    "subtitle": "Premium quality, prepared for hot pot, BBQ, frying and mixed dishes",
-    "categories": {
-      "meat": "Fresh Meat",
-      "seafood": "Fresh Seafood",
-      "vegetables": "Vegetables",
-      "mushroomsTofu": "Mushrooms & Tofu",
-      "koreanPantry": "Korean Pantry",
-      "hotPotSet": "Complete Hot Pot Set",
-      "addOns": "Add-ons (Toppings)"
+  "newRecommended": {
+    "title": "Signature & New",
+    "subtitle": "Discover the drinks we're loving right now.",
+    "exploreMenu": "Explore Full Menu",
+    "badgeNew": "NEW",
+    "badgeRecommended": "RECOMMENDED",
+    "drinks": {
+      "milk_tea_geum": {
+        "name": "Geum Milk Tea",
+        "name_vi": "Trà sữa Geum",
+        "description": "Creamy milk tea with a smooth, balanced finish.",
+        "description_vi": "Trà sữa kem mịn với vị cân bằng mượt mà."
+      },
+      "milk_tea_hokkaido": {
+        "name": "Hokkaido Milk Tea",
+        "name_vi": "Trà sữa Hokkaido",
+        "description": "Premium milk tea crafted with rich Hokkaido cream.",
+        "description_vi": "Trà sữa đậm đẳng cấp với kem Hokkaido thơm béo."
+      },
+      "milk_tea_pandan_jelly_cheese": {
+        "name": "Pandan Jelly Milk Tea with Cheese Foam",
+        "name_vi": "Trà sữa đông lá nếp phô mai",
+        "description": "Creamy milk tea with pandan jelly and delicate cheese foam.",
+        "description_vi": "Trà sữa thơm béo với thạch lá nếp và lớp kem phô mai mịn."
+      },
+      "matcha_latte": {
+        "name": "Matcha Latte",
+        "name_vi": "Matcha Latte",
+        "description": "Vivid matcha layered with creamy milk.",
+        "description_vi": "Matcha đậm đậm với lớp sữa kem béo ngậy."
+      },
+      "fresh_milk_black_pearl_brown_sugar": {
+        "name": "Brown Sugar Pearl Fresh Milk",
+        "name_vi": "Sữa tươi trân châu đường nâu",
+        "description": "Fresh milk with chewy brown sugar pearls.",
+        "description_vi": "Sữa tươi với trân châu đường nâu dẻo dai."
+      },
+      "yogurt_plain": {
+        "name": "Yogurt",
+        "name_vi": "Sữa chua",
+        "description": "Creamy yogurt drink with a refreshing tang.",
+        "description_vi": "Sữa chua kem mịn với vị chua tươi mát."
+      }
     }
   },
   "about": {
-    "title": "Korean Taste in Every Dish",
+    "title": "Korean-Asian Tea, Crafted with Character",
     "story": "Our Story",
-    "philosophy": "Culinary Philosophy",
-    "atmosphere": "Warm Atmosphere",
+    "philosophy": "Our Philosophy",
+    "atmosphere": "The Geum Cha Atmosphere",
     "storyText": [
-      "Seoul Korean Cuisine was born from a passion to bring authentic Korean flavors closer to Vietnamese diners. We wanted to create a dining space where everyone can experience the true taste of Korea right here in Vietnam.",
-      "Our journey began with the search for traditional recipes, the highest-quality ingredients, and elegant, refined presentation — all to deliver the most wonderful experience for our customers."
+      "Geum Cha was created from a love of distinctive Asian tea and milk-based beverages.",
+      "Our menu brings together familiar flavors and creative combinations — from classic milk tea and fresh milk to matcha, roasted rice, pandan, chocolate, fruit and yogurt creations.",
+      "The idea is simple: create beautiful, satisfying drinks that feel familiar yet offer something new with every visit."
     ],
     "philosophyItems": [
-      "Fresh ingredients daily — no frozen food or preservatives",
-      "Traditional Korean recipes that preserve authentic local flavors",
-      "Imported meat, fresh seafood, and safe organic vegetables",
-      "Customize dishes to your taste: spice level, toppings, size, and sweetness"
+      "Carefully selected ingredients and carefully balanced flavors",
+      "Rich, creamy textures combined with refreshing tea and fruit notes",
+      "A diverse menu inspired by Korean and Asian beverage culture",
+      "Flexible choices where available — sweetness, temperature, ice, size and toppings",
+      "Refined presentation designed to make every drink feel special"
     ],
     "atmosphereText": [
-      "The space at Seoul Korean Cuisine is designed in the \"Modern Seoul after dark\" style — modern and cozy, with deep charcoal black, warm gold, and rich Korean red tones. The warm golden lighting creates a relaxing feel, perfect for family dinners, romantic dates, or cheerful gatherings with friends.",
-      "Every detail — from the tables and chairs to the plates and food presentation — is carefully crafted to deliver a complete dining experience: not only delicious, but also beautiful and mentally relaxing."
+      "Geum Cha is designed as a modern Asian tea house with a calm, sophisticated atmosphere.",
+      "Deep charcoal tones, warm golden light and subtle Korean-inspired details create an intimate environment for slowing down and enjoying a good drink.",
+      "Whether you're meeting friends, taking a break, going on a casual date or simply enjoying some quiet time, Geum Cha is a place to pause, sip and stay a little longer."
     ]
   },
   "location": {
-    "title": "Visit Seoul Korean Cuisine",
+    "title": "Visit Geum Cha",
     "address": "Address",
     "hours": "Opening Hours",
     "phone": "Phone",
@@ -90,7 +125,7 @@
     "followUs": "Follow Us"
   },
   "footer": {
-    "rights": "All rights reserved by Seoul Korean Cuisine.",
+    "rights": "All rights reserved by Geum Cha.",
     "privacy": "Privacy Policy"
   },
   "common": {

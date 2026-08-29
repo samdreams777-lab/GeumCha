@@ -3,7 +3,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { generatePageSEO, type SEOProps } from '../../utils/seo';
 
 interface SEOHeadProps extends SEOProps {
-  pageType: 'home' | 'menu' | 'location' | 'about' | 'fresh-ingredients' | 'contact' | 'privacy';
+  pageType: 'home' | 'menu' | 'location' | 'about' | 'new-recommended' | 'contact' | 'privacy';
 }
 
 export function SEOHead({ pageType, ...customProps }: SEOHeadProps) {

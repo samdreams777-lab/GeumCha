@@ -7,7 +7,7 @@ import { Layout } from './components/layout/Layout';
 import { HomePage } from './pages/HomePage';
 import { MenuPage } from './pages/MenuPage';
 import { AboutPage } from './pages/AboutPage';
-import { FreshIngredientsPage } from './pages/FreshIngredientsPage';
+import { NewRecommendedPage } from './pages/NewRecommendedPage';
 import { LocationPage } from './pages/LocationPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPage } from './pages/PrivacyPage';
@@ -29,8 +29,8 @@ export default function App() {
             <Route path="/about" element={<Layout pageType="about" />}>
               <Route index element={<AboutPage />} />
             </Route>
-            <Route path="/fresh-ingredients" element={<Layout pageType="fresh-ingredients" />}>
-              <Route index element={<FreshIngredientsPage />} />
+            <Route path="/new-recommended" element={<Layout pageType="about" />}>
+              <Route index element={<NewRecommendedPage />} />
             </Route>
             <Route path="/location" element={<Layout pageType="location" />}>
               <Route index element={<LocationPage />} />

@@ -17,13 +17,13 @@ export function LocationPage() {
     .join(', ');
 
   const days = [
-    { key: 'monday', label: 'Thứ 2', label_en: 'Monday', open: '10:00', close: '22:00' },
-    { key: 'tuesday', label: 'Thứ 3', label_en: 'Tuesday', open: '10:00', close: '22:00' },
-    { key: 'wednesday', label: 'Thứ 4', label_en: 'Wednesday', open: '10:00', close: '22:00' },
-    { key: 'thursday', label: 'Thứ 5', label_en: 'Thursday', open: '10:00', close: '22:00' },
-    { key: 'friday', label: 'Thứ 6', label_en: 'Friday', open: '10:00', close: '22:00' },
-    { key: 'saturday', label: 'Thứ 7', label_en: 'Saturday', open: '10:00', close: '22:00' },
-    { key: 'sunday', label: 'Chủ nhật', label_en: 'Sunday', open: '10:00', close: '22:00' },
+    { key: 'monday', label: 'Thứ 2', label_en: 'Monday', open: '07:30', close: '22:00' },
+    { key: 'tuesday', label: 'Thứ 3', label_en: 'Tuesday', open: '07:30', close: '22:00' },
+    { key: 'wednesday', label: 'Thứ 4', label_en: 'Wednesday', open: '07:30', close: '22:00' },
+    { key: 'thursday', label: 'Thứ 5', label_en: 'Thursday', open: '07:30', close: '22:00' },
+    { key: 'friday', label: 'Thứ 6', label_en: 'Friday', open: '07:30', close: '22:00' },
+    { key: 'saturday', label: 'Thứ 7', label_en: 'Saturday', open: '07:30', close: '22:00' },
+    { key: 'sunday', label: 'Chủ nhật', label_en: 'Sunday', open: '07:30', close: '22:00' },
   ];
 
   return (
@@ -110,8 +110,8 @@ export function LocationPage() {
               <div className="relative aspect-[4/3]">
                 {/* Live Google Maps embed */}
                 <iframe
-                  title="Seoul Korean Cuisine — Google Maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.2669520449494!2d107.09990604331085!3d16.813107739066552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140e58d3f7b771b%3A0xcf7f4d3ccb9d8111!2zTcOsIENheSBTRU9VTCDEkMO0bmcgSMOg!5e0!3m2!1sru!2s!4v1787814916982!5m2!1sru!2s"
+                  title="Geum Cha — Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.3258712081383!2d107.10088177461483!3d16.8101823191777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140e514217fb157%3A0x516b1807c36c00ea!2zVHLDoCBz4buvYSBHZXVtY2hh!5e0!3m2!1sru!2s!4v1787902551313!5m2!1sru!2s"
                   className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                   loading="lazy"
@@ -120,7 +120,7 @@ export function LocationPage() {
               </div>
               <div className="p-6 border-t border-seoul-surface flex justify-center">
                 <a
-                  href={restaurantInfo.googleMapsLink || `https://maps.google.com/?q=${restaurantInfo.coordinates.latitude},${restaurantInfo.coordinates.longitude}`}
+                  href={restaurantInfo.googleMapsLink || `https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-hero-dark sm:w-56"

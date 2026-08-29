@@ -3,10 +3,10 @@ import { SEOHead } from '../ui/SEOHead';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { CartWidget } from '../menu/CartWidget';
-import heroBg from '../../assets/mainlogo.webp';
+import heroBg from '../../assets/hero.webp';
 
 interface LayoutProps {
-  pageType: 'home' | 'menu' | 'location' | 'about' | 'fresh-ingredients' | 'contact' | 'privacy';
+  pageType: 'home' | 'menu' | 'location' | 'about' | 'new-recommended' | 'contact' | 'privacy';
 }
 
 /**
@@ -32,7 +32,7 @@ export function Layout({ pageType }: LayoutProps) {
       />
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 pt-20 md:pt-24" id="main-content">
+        <main className={`flex-1 ${pageType === 'home' ? 'pt-0' : 'pt-20 md:pt-24'}`} id="main-content">
           <Outlet />
         </main>
         {pageType !== 'home' && <Footer />}

@@ -77,6 +77,22 @@ export interface TranslationKeys {
     contact: string;
     location: string;
   };
+  // New & Recommended
+  newRecommended: {
+    title: string;
+    subtitle: string;
+    exploreMenu: string;
+    badgeNew: string;
+    badgeRecommended: string;
+    drinks: {
+      milk_tea_geum: { name: string; name_vi: string; description: string; description_vi: string };
+      milk_tea_hokkaido: { name: string; name_vi: string; description: string; description_vi: string };
+      milk_tea_pandan_jelly_cheese: { name: string; name_vi: string; description: string; description_vi: string };
+      matcha_latte: { name: string; name_vi: string; description: string; description_vi: string };
+      fresh_milk_black_pearl_brown_sugar: { name: string; name_vi: string; description: string; description_vi: string };
+      yogurt_plain: { name: string; name_vi: string; description: string; description_vi: string };
+    };
+  };
   // Hero
   hero: {
     bookTable: string;
@@ -120,20 +136,6 @@ export interface TranslationKeys {
     iceLevel: string;
     size: string;
     quantity: string;
-  };
-  // Fresh Ingredients
-  freshIngredients: {
-    title: string;
-    subtitle: string;
-    categories: {
-      meat: string;
-      seafood: string;
-      vegetables: string;
-      mushroomsTofu: string;
-      koreanPantry: string;
-      hotPotSet: string;
-      addOns: string;
-    };
   };
   // About
   about: {

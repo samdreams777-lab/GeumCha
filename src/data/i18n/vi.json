@@ -3,24 +3,24 @@
     "home": "Trang chủ",
     "menu": "Thực đơn",
     "about": "Giới thiệu",
-    "freshIngredients": "Nguyên liệu tươi",
+    "freshIngredients": "Món mới & Đặc trưng",
     "contact": "Liên hệ",
     "location": "Địa chỉ"
   },
   "hero": {
     "bookTable": "Đặt bàn",
-    "headline": "Khám phá hương vị Hàn Quốc đích thực",
-    "subheadline": "Món Hàn tươi ngon, nguyên liệu chất lượng và trải nghiệm ẩm thực ấm cúng.",
+    "headline": "Trà Á Châu phong cách Hàn Quốc, đậm chất riêng",
+    "subheadline": "Khám phá Geum Cha — không gian trà hiện đại, nơi hương vị lấy cảm hứng từ Hàn Quốc kết hợp cùng phong cách đồ uống Á Châu đương đại.",
     "ctaPrimary": "Xem thực đơn",
     "ctaSecondary": "Chỉ đường",
     "ctaTertiary": "Gọi ngay",
-    "discoverSignature": "Khám phá món signature"
+    "discoverSignature": "Khám phá thức uống signature"
   },
   "menu": {
     "title": "Thực đơn",
     "all": "Tất cả",
-    "searchPlaceholder": "Tìm món ăn...",
-    "noResults": "Không tìm thấy món ăn phù hợp",
+    "searchPlaceholder": "Tìm thức uống...",
+    "noResults": "Không tìm thấy thức uống phù hợp",
     "addOns": "Thêm món",
     "options": "Tùy chọn",
     "modifiers": "Tùy chọn",
@@ -37,41 +37,76 @@
     "size": "Kích cỡ",
     "quantity": "Số lượng"
   },
-  "freshIngredients": {
-    "title": "Nguyên liệu tươi sống",
-    "subtitle": "Chất lượng cao, chuẩn bị cho lẩu, nướng, chiên và món trộn",
-    "categories": {
-      "meat": "Thịt tươi",
-      "seafood": "Hải sản tươi",
-      "vegetables": "Rau củ quả",
-      "mushroomsTofu": "Nấm & Đậu hũ",
-      "koreanPantry": "Gia vị Hàn Quốc",
-      "hotPotSet": "Bộ lẩu hoàn chỉnh",
-      "addOns": "Món thêm (Topping)"
+  "newRecommended": {
+    "title": "Món mới & Đặc trưng",
+    "subtitle": "Khám phá những thức uống chúng tôi đang yêu thích ngay bây giờ.",
+    "exploreMenu": "Xem toàn bộ thực đơn",
+    "badgeNew": "MỚI",
+    "badgeRecommended": "ĐỀ XUẤT",
+    "drinks": {
+      "milk_tea_geum": {
+        "name": "Trà sữa Geum",
+        "name_vi": "Trà sữa Geum",
+        "description": "Trà sữa kem mịn với vị cân bằng mượt mà.",
+        "description_vi": "Trà sữa kem mịn với vị cân bằng mượt mà."
+      },
+      "milk_tea_hokkaido": {
+        "name": "Trà sữa Hokkaido",
+        "name_vi": "Trà sữa Hokkaido",
+        "description": "Trà sữa đậm đẳng cấp với kem Hokkaido thơm béo.",
+        "description_vi": "Trà sữa đậm đẳng cấp với kem Hokkaido thơm béo."
+      },
+      "milk_tea_pandan_jelly_cheese": {
+        "name": "Trà sữa đông lá nếp phô mai",
+        "name_vi": "Trà sữa đông lá nếp phô mai",
+        "description": "Trà sữa thơm béo với thạch lá nếp và lớp kem phô mai mịn.",
+        "description_vi": "Trà sữa thơm béo với thạch lá nếp và lớp kem phô mai mịn."
+      },
+      "matcha_latte": {
+        "name": "Matcha Latte",
+        "name_vi": "Matcha Latte",
+        "description": "Matcha đậm đậm với lớp sữa kem béo ngậy.",
+        "description_vi": "Matcha đậm đậm với lớp sữa kem béo ngậy."
+      },
+      "fresh_milk_black_pearl_brown_sugar": {
+        "name": "Sữa tươi trân châu đường nâu",
+        "name_vi": "Sữa tươi trân châu đường nâu",
+        "description": "Sữa tươi với trân châu đường nâu dẻo dai.",
+        "description_vi": "Sữa tươi với trân châu đường nâu dẻo dai."
+      },
+      "yogurt_plain": {
+        "name": "Sữa chua",
+        "name_vi": "Sữa chua",
+        "description": "Sữa chua kem mịn với vị chua tươi mát.",
+        "description_vi": "Sữa chua kem mịn với vị chua tươi mát."
+      }
     }
   },
   "about": {
-    "title": "Vị Hàn Quốc trong từng món ăn",
-    "story": "Câu chuyện của chúng tôi",
-    "philosophy": "Triết lý ẩm thực",
-    "atmosphere": "Không gian ấm cúng",
+    "title": "Trà Á Châu phong cách Hàn Quốc, đậm chất riêng",
+    "story": "Câu chuyện Geum Cha",
+    "philosophy": "Triết lý của chúng tôi",
+    "atmosphere": "Không gian Geum Cha",
     "storyText": [
-      "Seoul Korean Cuisine ra đời từ niềm đam mê mang hương vị Hàn Quốc chân chính đến gần hơn với thực khách Việt Nam. Với mong muốn tạo ra một không gian ẩm thực nơi mọi người có thể trải nghiệm được vị Hàn Quốc đích thực ngay tại Việt Nam.",
-      "Hành trình bắt đầu từ việc tìm kiếm những công thức nấu ăn truyền thống, nguyên liệu chất lượng cao nhất và cách trình bày đẹp mắt, tinh tế - tất cả nhằm mang đến trải nghiệm tuyệt vời nhất cho khách hàng."
+      "Geum Cha được tạo nên từ niềm yêu thích dành cho trà và những thức uống từ sữa mang đậm cảm hứng Á Châu.",
+      "Thực đơn kết hợp những hương vị quen thuộc với các cách kết hợp sáng tạo — từ trà sữa truyền thống, sữa tươi đến matcha, gạo rang, lá nếp, chocolate, trái cây và các món sữa chua.",
+      "Ý tưởng rất đơn giản: tạo ra những thức uống đẹp mắt, ngon miệng và vừa quen thuộc vừa đủ mới mẻ để mỗi lần ghé Geum Cha đều có điều thú vị để khám phá."
     ],
     "philosophyItems": [
-      "Nguyên liệu tươi sống mỗi ngày, không sử dụng thực phẩm đông lạnh hay chất bảo quản",
-      "Công thức nấu ăn truyền thống Hàn Quốc, giữ nguyên hương vị bản xứ",
-      "Thịt nhập khẩu, hải sản tươi sống, rau củ hữu cơ an toàn",
-      "Tùy chỉnh món ăn theo sở thích: độ cay, topping, kích cỡ, độ ngọt"
+      "Nguyên liệu được lựa chọn kỹ lưỡng và hương vị được cân bằng tinh tế",
+      "Kết hợp kết cấu béo mịn với hương trà, trái cây và các tầng vị tươi mát",
+      "Thực đơn đa dạng lấy cảm hứng từ văn hóa đồ uống Hàn Quốc và Châu Á",
+      "Tùy chỉnh theo từng món khi có hỗ trợ: độ ngọt, nhiệt độ, lượng đá, kích cỡ và topping",
+      "Cách trình bày tinh tế để mỗi thức uống trở thành một trải nghiệm đáng nhớ"
     ],
     "atmosphereText": [
-      "Không gian tại Seoul Korean Cuisine được thiết kế với phong cách \"Modern Seoul after dark\" - hiện đại, ấm cúng với gam màu charcoal đen, vàng ấm và đỏ Hàn Quốc đậm đà. Hệ thống ánh sáng vàng ấm tạo cảm giác thư giãn, phù hợp cho các bữa tối gia đình, hẹn hò lãng mạn hoặc tụ tập bạn bè vui vẻ.",
-      "Mỗi chi tiết từ bàn ghế, đĩa đĩa, đến cách trình bày món ăn đều được chăm chút kỹ lưỡng để mang đến trải nghiệm ẩm thực trọn vẹn nhất - không chỉ ngon miệng mà còn đẹp mắt và thư giãn tinh thần."
+      "Geum Cha được thiết kế theo phong cách trà hiện đại Á Châu với bầu không khí yên tĩnh và tinh tế.",
+      "Tông than đậm, ánh sáng vàng ấm cùng những chi tiết lấy cảm hứng từ Hàn Quốc tạo nên một không gian gần gũi, thư giãn và có chiều sâu.",
+      "Dù là gặp gỡ bạn bè, nghỉ ngơi, hẹn hò hay đơn giản là dành một chút thời gian cho bản thân, Geum Cha là nơi để chậm lại, thưởng thức một ly đồ uống và tận hưởng khoảnh khắc của riêng mình."
     ]
   },
   "location": {
-    "title": "Đến Seoul Korean Cuisine",
+    "title": "Đến Geum Cha",
     "address": "Địa chỉ",
     "hours": "Giờ mở cửa",
     "phone": "Điện thoại",
@@ -90,7 +125,7 @@
     "followUs": "Theo dõi chúng tôi"
   },
   "footer": {
-    "rights": "Bản quyền thuộc về Seoul Korean Cuisine.",
+    "rights": "Bản quyền thuộc về Geum Cha.",
     "privacy": "Chính sách bảo mật"
   },
   "common": {
