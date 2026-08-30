@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import logo from '../../assets/mainlogo.webp';
-import heroVideo from '../../assets/heroios.mov';
-import { useState, useEffect, useCallback } from 'react';
+import heroVideo from '../../assets/hero.mp4';
+import heroPoster from '../../assets/hero.webp';
+import { useState, useEffect, useRef } from 'react';
 
 /**
  * Hero with video background + delayed Main Logo Web fade-in.
@@ -11,11 +12,7 @@ import { useState, useEffect, useCallback } from 'react';
 export function Hero() {
   const { t } = useLanguage();
   const [logoVisible, setLogoVisible] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
-
-  const handleVideoCanPlay = useCallback(() => {
-    setVideoReady(true);
-  }, []);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,21 +21,41 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Guarantee muted as a DOM property (React does not always reflect the
+  // `muted` attribute to video.muted) and kick off autoplay explicitly so
+  // iOS/WebKit treats it as an allowed muted autoplay.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === 'function') {
+        // Autoplay blocked (e.g. Low Power Mode). Poster remains visible.
+        p.catch(() => {});
+      }
+    };
+    if (v.readyState >= 2) tryPlay();
+    else v.addEventListener('loadeddata', tryPlay, { once: true });
+    return () => v.removeEventListener('loadeddata', tryPlay);
+  }, []);
+
   return (
     <section className="relative min-h-screen" aria-labelledby="hero-title">
       {/* Video background */}
       <div className="absolute inset-0 z-0 overflow-hidden hero-video">
         <video
+          ref={videoRef}
           src={heroVideo}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           disablePictureInPicture
-          className={`absolute inset-0 w-full h-full object-cover hero-video ${videoReady ? 'opacity-100' : 'opacity-0'}`}
-          style={{ transition: 'opacity 0.5s ease' }}
-          onCanPlayThrough={handleVideoCanPlay}
-          onError={() => setVideoReady(true)}
+          poster={heroPoster}
+          className="absolute inset-0 w-full h-full object-cover hero-video"
         />
       </div>
 
