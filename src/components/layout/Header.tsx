@@ -66,7 +66,7 @@ export function Header() {
                     : 'text-seoul-text-muted hover:text-seoul-text'
                 }`}
               >
-                {(t.nav as Record<string,string>)[item.labelKey]}
+                {(t.nav as Record<string,string>)[item.labelKey.split('.')[1]]}
                 {location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path)) && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-seoul-gold" aria-hidden="true" />
                 )}

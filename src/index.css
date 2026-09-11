@@ -246,6 +246,15 @@
     overflow: hidden;
   }
 
+  /* Decorative section divider — referenced by 6 pages; was undefined. */
+  .divider {
+    width: 60px;
+    height: 3px;
+    margin: 1rem auto;
+    border-radius: 9999px;
+    background: linear-gradient(to right, transparent, var(--seoul-gold, #C69A5B), transparent);
+  }
+
   /* Animation */
   .animate-fade-in {
     animation: fadeIn 0.4s ease-out forwards;

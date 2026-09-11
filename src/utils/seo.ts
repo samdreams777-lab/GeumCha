@@ -184,7 +184,7 @@ function generateRestaurantSchema(locale: Locale) {
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     hasMenu: `${import.meta.env.BASE_URL}menu`,
     image: [
-      `${import.meta.env.BASE_URL}images/menu/milk_tea_traditional.jpg`,
+      `${import.meta.env.BASE_URL}images/menu/milk_tea_geum.webp`,
       `${import.meta.env.BASE_URL}images/menu/matcha_latte.webp`,
     ],
     sameAs: [

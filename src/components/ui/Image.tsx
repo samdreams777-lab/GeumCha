@@ -1,7 +1,7 @@
 import { forwardRef, type ImgHTMLAttributes, useState } from 'react';
 
 // Fallback image used when a beverage has no photo of its own
-export const FALLBACK_DISH_IMAGE = `${import.meta.env.BASE_URL}images/menu/milk_tea_traditional.jpg`;
+export const FALLBACK_DISH_IMAGE = `${import.meta.env.BASE_URL}images/menu/milk_tea_geum.webp`;
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /** Full public path to the actual file, e.g. "/images/menu/kimchi-ramen.webp" */

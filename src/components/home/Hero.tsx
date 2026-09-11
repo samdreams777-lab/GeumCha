@@ -27,36 +27,75 @@ export function Hero() {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
+
     v.muted = true;
     v.defaultMuted = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', 'true');
+    v.setAttribute('webkit-playsinline', 'true');
+    v.setAttribute('x5-playsinline', 'true');
+
     const tryPlay = () => {
       const p = v.play();
       if (p && typeof p.catch === 'function') {
-        // Autoplay blocked (e.g. Low Power Mode). Poster remains visible.
-        p.catch(() => {});
+        p.catch(() => {
+          // Autoplay was blocked (e.g. iOS Low Power Mode).
+          // Start seamlessly on first user interaction.
+          const startOnInteraction = () => {
+            v.play().catch(() => {});
+            window.removeEventListener('touchstart', startOnInteraction);
+            window.removeEventListener('pointerdown', startOnInteraction);
+            window.removeEventListener('click', startOnInteraction);
+            window.removeEventListener('scroll', startOnInteraction);
+          };
+          window.addEventListener('touchstart', startOnInteraction, { once: true, passive: true });
+          window.addEventListener('pointerdown', startOnInteraction, { once: true, passive: true });
+          window.addEventListener('click', startOnInteraction, { once: true, passive: true });
+          window.addEventListener('scroll', startOnInteraction, { once: true, passive: true });
+        });
       }
     };
-    if (v.readyState >= 2) tryPlay();
-    else v.addEventListener('loadeddata', tryPlay, { once: true });
-    return () => v.removeEventListener('loadeddata', tryPlay);
+
+    if (v.readyState >= 2) {
+      tryPlay();
+    } else {
+      v.addEventListener('loadeddata', tryPlay, { once: true });
+      v.addEventListener('canplay', tryPlay, { once: true });
+    }
+
+    // Resume video playback if user returns to the tab/app
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && v.paused) {
+        tryPlay();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      v.removeEventListener('loadeddata', tryPlay);
+      v.removeEventListener('canplay', tryPlay);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, []);
 
   return (
     <section className="relative min-h-screen" aria-labelledby="hero-title">
       {/* Video background */}
-      <div className="absolute inset-0 z-0 overflow-hidden hero-video">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none hero-video">
         <video
           ref={videoRef}
-          src={heroVideo}
           autoPlay
           muted
           loop
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           disablePictureInPicture
           poster={heroPoster}
-          className="absolute inset-0 w-full h-full object-cover hero-video"
-        />
+          className="absolute inset-0 w-full h-full object-cover hero-video pointer-events-none"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
       </div>
 
       {/* Readability overlay */}
@@ -77,7 +116,7 @@ export function Hero() {
             fetchPriority="high"
             decoding="async"
             className="object-contain w-auto drop-shadow-[0_6px_28px_rgba(0,0,0,0.65)]"
-            style={{ maxHeight: 'calc(100vh - 220px)', maxWidth: '94vw' }}
+            style={{ maxHeight: 'calc(100dvh - 220px)', maxWidth: '94vw' }}
           />
         </div>
 
